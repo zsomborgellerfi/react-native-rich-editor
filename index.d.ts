@@ -2,6 +2,16 @@ import {WebViewProps} from 'react-native-webview';
 import {ImageSourcePropType, StyleProp, ViewStyle} from 'react-native';
 import React from 'react';
 
+type KeyEvent = {
+    keyCode: number;
+    key: string;
+};
+
+type InputEvent = {
+    data: string;
+    inputType: string;
+};
+
 /** The RichTextEditor accepts all props from Webview */
 export interface RichEditorProps extends WebViewProps {
     /**
@@ -90,18 +100,18 @@ export interface RichEditorProps extends WebViewProps {
     /**
      * Callback when the user keyup some content
      */
-    onKeyUp?: ({keyCode: number, key: string}) => void;
+    onKeyUp?: (keyEvent: KeyEvent) => void;
 
     /**
      * Callback when the user keydown some content
      */
-    onKeyDown?: ({keyCode: number, key: string}) => void;
+    onKeyDown?: (keyEvent: KeyEvent) => void;
 
     /**
      * Callback input chat
      * Android and iOS inputType are not the same
      */
-    onInput?: ({data: string, inputType: string}) => void;
+    onInput?: (inputEvent: InputEvent) => void;
 
     /**
      * Callback when the editor focus some content
@@ -126,7 +136,7 @@ export interface RichEditorProps extends WebViewProps {
     onMessage?: (message: {type: string; id: string; data?: any}) => void;
 
     /** Custom action sent to editor */
-    sendAction(type: string, action: string, data?: any, options?: any): void;
+    sendAction?(type: string, action: string, data?: any, options?: any): void;
 
     /**
      * When first gaining focus, the cursor moves to the end of the text
