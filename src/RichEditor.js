@@ -393,6 +393,10 @@ export default class RichTextEditor extends Component {
         }
     }
 
+    injectJavascript(script) {
+		return this.webviewBridge.injectJavaScript(script);
+	}
+
     preCode(type) {
         this.sendAction(actions.code, 'result', type);
     }
