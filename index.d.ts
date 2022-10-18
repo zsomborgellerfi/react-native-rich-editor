@@ -45,6 +45,11 @@ export interface RichEditorProps extends WebViewProps {
     disabled?: boolean;
 
     /**
+     * Boolean value to enable auto-correct. The default value is false.
+     */
+    autoCorrect?: boolean;
+
+    /**
      * String value to set text auto capitalization.
      * See: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/autocapitalize
      */
