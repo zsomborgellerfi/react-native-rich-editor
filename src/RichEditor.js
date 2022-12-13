@@ -33,7 +33,6 @@ export default class RichTextEditor extends Component {
         defaultParagraphSeparator: 'div',
         editorInitializedCallback: () => {},
         initialHeight: 0,
-        initialFocus,
     };
 
     constructor(props) {
@@ -76,6 +75,7 @@ export default class RichTextEditor extends Component {
             firstFocusEnd,
             useContainer,
             initialHeight,
+            initialFocus,
         } = props;
         that.state = {
             html: {
